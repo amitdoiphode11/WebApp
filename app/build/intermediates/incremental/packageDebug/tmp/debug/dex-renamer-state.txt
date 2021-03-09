@@ -1,0 +1,4 @@
+#Mon Mar 08 17:36:14 IST 2021
+base.0=D\:\\Workspace\\android\\Barclays\\barclayspoc\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
+path.0=classes.dex
+renamed.0=classes.dex

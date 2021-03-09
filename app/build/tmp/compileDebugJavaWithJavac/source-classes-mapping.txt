@@ -1,0 +1,2 @@
+com/example/barclayspoc/BuildConfig.java
+ com.example.barclayspoc.BuildConfig
