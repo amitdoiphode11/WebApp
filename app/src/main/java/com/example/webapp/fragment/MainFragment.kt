@@ -46,10 +46,6 @@ class MainFragment : Fragment() {
         webView.loadUrl(BASE_URL)
     }
 
-    override fun onDestroy() {
-        //webView.removeJavascriptInterface(JAVASCRIPT_OBJ)
-        super.onDestroy()
-    }
 
     private fun injectJavaScriptFunction() {
         webView.loadUrl(
@@ -63,7 +59,6 @@ class MainFragment : Fragment() {
     private inner class JavaScriptInterface {
         @JavascriptInterface
         fun textFromWeb(pdf: String) {
-            Toast.makeText(context, "$pdf", Toast.LENGTH_LONG).show()
             ((activity) as MainActivity).replaceFragment(PfdViewFragment.newInstance(pdf))
         }
     }

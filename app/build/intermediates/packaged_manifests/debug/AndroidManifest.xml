@@ -19,7 +19,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BarclaysPOC" >
-        <activity android:name="com.example.webapp.ViewPdfActivity" />
         <activity android:name="com.example.webapp.MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
