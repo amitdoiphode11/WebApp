@@ -1,12 +1,13 @@
 package com.example.webapp
 
 import android.os.Bundle
-import android.util.Log
 import android.webkit.JavascriptInterface
 import android.webkit.WebView
 import android.webkit.WebViewClient
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
+
 
 class MainActivity : AppCompatActivity() {
     companion object {
@@ -28,7 +29,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
         webView.loadUrl(BASE_URL)
-        webView.loadUrl("javascript:Android.showToast('Hello!');")
+
 
     }
 
@@ -48,9 +49,11 @@ class MainActivity : AppCompatActivity() {
 
     private inner class JavaScriptInterface {
         @JavascriptInterface
-        fun textFromWeb(fromWeb: String) {
+        fun textFromWeb(pdf: String) {
             //txt_from_web.text = fromWeb
-            Log.e(TAG, "textFromWeb: $fromWeb")
+            //Toast.makeText(baseContext, "$pdf", Toast.LENGTH_LONG).show()
+            intent = ViewPdfActivity.getStartIntent(this@MainActivity, pdf)
+            startActivity(intent)
         }
     }
 }

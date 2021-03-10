@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\Workspace\\android\\Barclays\\barclayspoc\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-pt-rPT\\values-pt-rPT.xml",
+            "outputFile": "D:\\Workspace\\android\\Barclays\\webapp\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-pt-rPT\\values-pt-rPT.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Amit\\.gradle\\caches\\transforms-2\\files-2.1\\927d1b8ffae7106df1122611fdd0eb0f\\core-1.3.2\\res\\values-pt-rPT\\values-pt-rPT.xml",

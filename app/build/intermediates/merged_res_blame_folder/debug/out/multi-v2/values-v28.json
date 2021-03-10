@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\Workspace\\android\\Barclays\\barclayspoc\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v28\\values-v28.xml",
+            "outputFile": "D:\\Workspace\\android\\Barclays\\webapp\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v28\\values-v28.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Amit\\.gradle\\caches\\transforms-2\\files-2.1\\752fe986667f77d7d6145423f645676f\\material-1.1.0\\res\\values-v28\\values-v28.xml",

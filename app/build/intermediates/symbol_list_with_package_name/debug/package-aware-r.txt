@@ -1,4 +1,4 @@
-com.example.barclayspoc
+com.example.webapp
 anim abc_fade_in
 anim abc_fade_out
 anim abc_grow_fade_in_from_bottom
@@ -1872,6 +1872,7 @@ id useLogo
 id view_offset_helper
 id visible
 id webView
+id webView1
 id withText
 id wrap
 id wrap_content
@@ -1936,6 +1937,7 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_main
+layout activity_view_pdf
 layout custom_dialog
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
