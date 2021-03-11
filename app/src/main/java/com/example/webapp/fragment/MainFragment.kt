@@ -1,5 +1,6 @@
 package com.example.webapp.fragment
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +9,7 @@ import android.webkit.JavascriptInterface
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import com.example.webapp.MainActivity
 import com.example.webapp.R
@@ -34,6 +36,14 @@ class MainFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+        //loadWebView()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        loadWebView()
+    }
+    private fun loadWebView() {
         webView.settings.javaScriptEnabled = true
         webView.addJavascriptInterface(JavaScriptInterface(), JAVASCRIPT_OBJ)
         webView.webViewClient = object : WebViewClient() {
@@ -45,7 +55,6 @@ class MainFragment : Fragment() {
         }
         webView.loadUrl(BASE_URL)
     }
-
 
     private fun injectJavaScriptFunction() {
         webView.loadUrl(
@@ -61,5 +70,20 @@ class MainFragment : Fragment() {
         fun textFromWeb(pdf: String) {
             ((activity) as MainActivity).replaceFragment(PfdViewFragment.newInstance(pdf))
         }
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        val callback = object : OnBackPressedCallback(
+            true // default to enabled
+        ) {
+            override fun handleOnBackPressed() {
+                requireActivity().finish()
+            }
+        }
+        requireActivity().onBackPressedDispatcher.addCallback(
+            this, // LifecycleOwner
+            callback
+        )
     }
 }

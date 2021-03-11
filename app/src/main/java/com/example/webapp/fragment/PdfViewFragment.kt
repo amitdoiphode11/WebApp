@@ -1,10 +1,12 @@
 package com.example.webapp.fragment
 
+import android.content.Context
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
+import androidx.fragment.app.Fragment
 import com.example.webapp.R
 import kotlinx.android.synthetic.main.fragment_pfd_view.*
 
@@ -43,5 +45,22 @@ class PfdViewFragment : Fragment() {
 
         webView1.settings.javaScriptEnabled = true
         webView1.loadUrl("https://drive.google.com/viewerng/viewer?embedded=true&url=$pdfPath")
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        val callback = object : OnBackPressedCallback(
+            true // default to enabled
+        ) {
+            override fun handleOnBackPressed() {
+                for (i in 0 until requireActivity().supportFragmentManager.backStackEntryCount) {
+                    activity?.supportFragmentManager?.popBackStack()
+                }
+            }
+        }
+        requireActivity().onBackPressedDispatcher.addCallback(
+            this, // LifecycleOwner
+            callback
+        )
     }
 }
