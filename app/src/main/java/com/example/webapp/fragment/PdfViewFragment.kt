@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import com.example.webapp.R
@@ -31,6 +32,8 @@ class PfdViewFragment : Fragment() {
     }
 
     companion object {
+        private const val TAG = "PdfViewFragment"
+
         @JvmStatic
         fun newInstance(param1: String) =
             PfdViewFragment().apply {
@@ -53,9 +56,9 @@ class PfdViewFragment : Fragment() {
             true // default to enabled
         ) {
             override fun handleOnBackPressed() {
-                for (i in 0 until requireActivity().supportFragmentManager.backStackEntryCount) {
-                    activity?.supportFragmentManager?.popBackStack()
-                }
+                //for (i in 0 until requireActivity().supportFragmentManager.backStackEntryCount) {
+                activity?.supportFragmentManager?.popBackStack()
+                //}
             }
         }
         requireActivity().onBackPressedDispatcher.addCallback(

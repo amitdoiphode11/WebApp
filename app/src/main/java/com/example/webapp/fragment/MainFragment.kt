@@ -2,22 +2,26 @@ package com.example.webapp.fragment
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.webkit.JavascriptInterface
 import android.webkit.WebView
 import android.webkit.WebViewClient
-import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import com.example.webapp.MainActivity
 import com.example.webapp.R
+import com.example.webapp.data.DeviceDetails
+import com.example.webapp.logger.TimberRemoteTree
 import kotlinx.android.synthetic.main.fragment_main.*
+import timber.log.Timber
 
 class MainFragment : Fragment() {
 
     companion object {
+        private const val TAG = "MainFragment"
         private val JAVASCRIPT_OBJ = "javascript_obj"
         private val BASE_URL = "file:///android_asset/webview.html"
     }
@@ -36,12 +40,14 @@ class MainFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        //loadWebView()
+        loadWebView()
+        TimberRemoteTree(DeviceDetails()).i( "onActivityCreated: " )
     }
 
     override fun onResume() {
         super.onResume()
-        loadWebView()
+        //loadWebView()
+        TimberRemoteTree(DeviceDetails()).i("onResume")
     }
     private fun loadWebView() {
         webView.settings.javaScriptEnabled = true
