@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
+import com.example.webapp.LogoutService
 import com.example.webapp.R
 import kotlinx.android.synthetic.main.fragment_pfd_view.*
 
@@ -43,6 +44,11 @@ class PfdViewFragment : Fragment() {
             }
     }
 
+    override fun onResume() {
+        super.onResume()
+        LogoutService.timer?.start()
+    }
+
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
@@ -65,5 +71,10 @@ class PfdViewFragment : Fragment() {
             this, // LifecycleOwner
             callback
         )
+    }
+
+    override fun onStop() {
+        super.onStop()
+        LogoutService.timer?.cancel()
     }
 }

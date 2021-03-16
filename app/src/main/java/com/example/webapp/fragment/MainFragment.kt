@@ -11,6 +11,7 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
+import com.example.webapp.LogoutService
 import com.example.webapp.MainActivity
 import com.example.webapp.R
 import com.example.webapp.data.DeviceDetails
@@ -46,8 +47,7 @@ class MainFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        //loadWebView()
-        TimberRemoteTree(DeviceDetails()).i("onResume")
+        LogoutService.timer?.start()
     }
     private fun loadWebView() {
         webView.settings.javaScriptEnabled = true
@@ -91,5 +91,10 @@ class MainFragment : Fragment() {
             this, // LifecycleOwner
             callback
         )
+    }
+
+    override fun onStop() {
+        super.onStop()
+        LogoutService.timer?.cancel()
     }
 }

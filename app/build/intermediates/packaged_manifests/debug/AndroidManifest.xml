@@ -33,6 +33,9 @@
         </activity>
 
         <service
+            android:name="com.example.webapp.LogoutService"
+            android:exported="true" />
+        <service
             android:name="com.google.firebase.components.ComponentDiscoveryService"
             android:directBootAware="true"
             android:exported="false" >
